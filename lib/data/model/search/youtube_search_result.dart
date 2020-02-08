@@ -16,10 +16,6 @@ abstract class YoutubeSearchResult
   @nullable
   String get nextPageToken;
   PageInfo get pageInfo;
-  // "pageInfo": {
-  //   "totalResults": 412,
-  //   "resultsPerPage": 5
-  //  },
   BuiltList<SearchItem> get items;
 
   YoutubeSearchResult._();
