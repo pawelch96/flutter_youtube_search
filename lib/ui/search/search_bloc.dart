@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:youtube_search/data/model/search/youtube_search_error.dart';
 import 'package:youtube_search/data/repository/youtube_repository.dart';
-import 'search.dart';
+import 'package:youtube_search/ui/search/search.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
   final YoutubeRepository _youtubeRepository;

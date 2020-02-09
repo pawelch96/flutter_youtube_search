@@ -8,7 +8,7 @@ class YoutubeRepository {
 
   String _lastSearchQuery;
   String _nextPageToken;
-  int totalResults;
+  // int totalResults;
 
   YoutubeRepository(this._youtubeDataSource);
 
@@ -17,7 +17,6 @@ class YoutubeRepository {
     _cacheValues(
       query: query,
       nextPageToken: searchResult.nextPageToken,
-      results: searchResult.pageInfo.totalResults,
     );
     if (searchResult.items.isEmpty) throw NoSearchResultsException();
     return searchResult.items;
@@ -26,7 +25,6 @@ class YoutubeRepository {
   void _cacheValues({String query, String nextPageToken, int results}) {
     _lastSearchQuery = query;
     _nextPageToken = nextPageToken;
-    totalResults = results;
   }
 
   Future<BuiltList<SearchItem>> fetchNextResultPage() async {
