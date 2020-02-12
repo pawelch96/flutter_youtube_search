@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of search_snippet;
+part of video_snippet;
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<SearchSnippet> _$searchSnippetSerializer =
-    new _$SearchSnippetSerializer();
+Serializer<VideoSnippet> _$videoSnippetSerializer =
+    new _$VideoSnippetSerializer();
 
-class _$SearchSnippetSerializer implements StructuredSerializer<SearchSnippet> {
+class _$VideoSnippetSerializer implements StructuredSerializer<VideoSnippet> {
   @override
-  final Iterable<Type> types = const [SearchSnippet, _$SearchSnippet];
+  final Iterable<Type> types = const [VideoSnippet, _$VideoSnippet];
   @override
-  final String wireName = 'SearchSnippet';
+  final String wireName = 'VideoSnippet';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, SearchSnippet object,
+  Iterable<Object> serialize(Serializers serializers, VideoSnippet object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'publishedAt',
@@ -37,16 +37,19 @@ class _$SearchSnippetSerializer implements StructuredSerializer<SearchSnippet> {
       'channelTitle',
       serializers.serialize(object.channelTitle,
           specifiedType: const FullType(String)),
+      'tags',
+      serializers.serialize(object.tags,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(String)])),
     ];
 
     return result;
   }
 
   @override
-  SearchSnippet deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+  VideoSnippet deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new SearchSnippetBuilder();
+    final result = new VideoSnippetBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -78,6 +81,12 @@ class _$SearchSnippetSerializer implements StructuredSerializer<SearchSnippet> {
           result.channelTitle = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'tags':
+          result.tags.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<dynamic>);
+          break;
       }
     }
 
@@ -85,7 +94,7 @@ class _$SearchSnippetSerializer implements StructuredSerializer<SearchSnippet> {
   }
 }
 
-class _$SearchSnippet extends SearchSnippet {
+class _$VideoSnippet extends VideoSnippet {
   @override
   final String publishedAt;
   @override
@@ -98,55 +107,62 @@ class _$SearchSnippet extends SearchSnippet {
   final Thumbnails thumbnails;
   @override
   final String channelTitle;
+  @override
+  final BuiltList<String> tags;
 
-  factory _$SearchSnippet([void Function(SearchSnippetBuilder) updates]) =>
-      (new SearchSnippetBuilder()..update(updates)).build();
+  factory _$VideoSnippet([void Function(VideoSnippetBuilder) updates]) =>
+      (new VideoSnippetBuilder()..update(updates)).build();
 
-  _$SearchSnippet._(
+  _$VideoSnippet._(
       {this.publishedAt,
       this.channelId,
       this.title,
       this.description,
       this.thumbnails,
-      this.channelTitle})
+      this.channelTitle,
+      this.tags})
       : super._() {
     if (publishedAt == null) {
-      throw new BuiltValueNullFieldError('SearchSnippet', 'publishedAt');
+      throw new BuiltValueNullFieldError('VideoSnippet', 'publishedAt');
     }
     if (channelId == null) {
-      throw new BuiltValueNullFieldError('SearchSnippet', 'channelId');
+      throw new BuiltValueNullFieldError('VideoSnippet', 'channelId');
     }
     if (title == null) {
-      throw new BuiltValueNullFieldError('SearchSnippet', 'title');
+      throw new BuiltValueNullFieldError('VideoSnippet', 'title');
     }
     if (description == null) {
-      throw new BuiltValueNullFieldError('SearchSnippet', 'description');
+      throw new BuiltValueNullFieldError('VideoSnippet', 'description');
     }
     if (thumbnails == null) {
-      throw new BuiltValueNullFieldError('SearchSnippet', 'thumbnails');
+      throw new BuiltValueNullFieldError('VideoSnippet', 'thumbnails');
     }
     if (channelTitle == null) {
-      throw new BuiltValueNullFieldError('SearchSnippet', 'channelTitle');
+      throw new BuiltValueNullFieldError('VideoSnippet', 'channelTitle');
+    }
+    if (tags == null) {
+      throw new BuiltValueNullFieldError('VideoSnippet', 'tags');
     }
   }
 
   @override
-  SearchSnippet rebuild(void Function(SearchSnippetBuilder) updates) =>
+  VideoSnippet rebuild(void Function(VideoSnippetBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SearchSnippetBuilder toBuilder() => new SearchSnippetBuilder()..replace(this);
+  VideoSnippetBuilder toBuilder() => new VideoSnippetBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SearchSnippet &&
+    return other is VideoSnippet &&
         publishedAt == other.publishedAt &&
         channelId == other.channelId &&
         title == other.title &&
         description == other.description &&
         thumbnails == other.thumbnails &&
-        channelTitle == other.channelTitle;
+        channelTitle == other.channelTitle &&
+        tags == other.tags;
   }
 
   @override
@@ -154,29 +170,32 @@ class _$SearchSnippet extends SearchSnippet {
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc(0, publishedAt.hashCode), channelId.hashCode),
-                    title.hashCode),
-                description.hashCode),
-            thumbnails.hashCode),
-        channelTitle.hashCode));
+                $jc(
+                    $jc($jc($jc(0, publishedAt.hashCode), channelId.hashCode),
+                        title.hashCode),
+                    description.hashCode),
+                thumbnails.hashCode),
+            channelTitle.hashCode),
+        tags.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('SearchSnippet')
+    return (newBuiltValueToStringHelper('VideoSnippet')
           ..add('publishedAt', publishedAt)
           ..add('channelId', channelId)
           ..add('title', title)
           ..add('description', description)
           ..add('thumbnails', thumbnails)
-          ..add('channelTitle', channelTitle))
+          ..add('channelTitle', channelTitle)
+          ..add('tags', tags))
         .toString();
   }
 }
 
-class SearchSnippetBuilder
-    implements Builder<SearchSnippet, SearchSnippetBuilder> {
-  _$SearchSnippet _$v;
+class VideoSnippetBuilder
+    implements Builder<VideoSnippet, VideoSnippetBuilder> {
+  _$VideoSnippet _$v;
 
   String _publishedAt;
   String get publishedAt => _$this._publishedAt;
@@ -204,9 +223,13 @@ class SearchSnippetBuilder
   String get channelTitle => _$this._channelTitle;
   set channelTitle(String channelTitle) => _$this._channelTitle = channelTitle;
 
-  SearchSnippetBuilder();
+  ListBuilder<String> _tags;
+  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  set tags(ListBuilder<String> tags) => _$this._tags = tags;
 
-  SearchSnippetBuilder get _$this {
+  VideoSnippetBuilder();
+
+  VideoSnippetBuilder get _$this {
     if (_$v != null) {
       _publishedAt = _$v.publishedAt;
       _channelId = _$v.channelId;
@@ -214,44 +237,49 @@ class SearchSnippetBuilder
       _description = _$v.description;
       _thumbnails = _$v.thumbnails?.toBuilder();
       _channelTitle = _$v.channelTitle;
+      _tags = _$v.tags?.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(SearchSnippet other) {
+  void replace(VideoSnippet other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$SearchSnippet;
+    _$v = other as _$VideoSnippet;
   }
 
   @override
-  void update(void Function(SearchSnippetBuilder) updates) {
+  void update(void Function(VideoSnippetBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$SearchSnippet build() {
-    _$SearchSnippet _$result;
+  _$VideoSnippet build() {
+    _$VideoSnippet _$result;
     try {
       _$result = _$v ??
-          new _$SearchSnippet._(
+          new _$VideoSnippet._(
               publishedAt: publishedAt,
               channelId: channelId,
               title: title,
               description: description,
               thumbnails: thumbnails.build(),
-              channelTitle: channelTitle);
+              channelTitle: channelTitle,
+              tags: tags.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'thumbnails';
         thumbnails.build();
+
+        _$failedField = 'tags';
+        tags.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'SearchSnippet', _$failedField, e.toString());
+            'VideoSnippet', _$failedField, e.toString());
       }
       rethrow;
     }

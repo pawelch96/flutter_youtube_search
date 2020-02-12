@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kiwi/kiwi.dart' as kiwi;
+import 'package:html_unescape/html_unescape.dart';
 import 'package:youtube_search/data/model/search/search_snippet.dart';
 import 'package:youtube_search/ui/search/search_bloc.dart';
 import 'package:youtube_search/ui/search/search_state.dart';
@@ -107,6 +108,7 @@ class _SearchPageState extends State<SearchPage> {
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             AspectRatio(
               aspectRatio: 16 / 9,
@@ -117,8 +119,9 @@ class _SearchPageState extends State<SearchPage> {
             ),
             SizedBox(height: 6),
             Text(
-              snippet.title,
+              HtmlUnescape().convert(snippet.title),
               maxLines: 1,
+              textAlign: TextAlign.left,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontWeight: FontWeight.bold,

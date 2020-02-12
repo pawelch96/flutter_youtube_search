@@ -8,7 +8,7 @@ class YoutubeRepository {
 
   String _lastSearchQuery;
   String _nextPageToken;
-  // int totalResults;
+  int totalResults;
 
   YoutubeRepository(this._youtubeDataSource);
 
