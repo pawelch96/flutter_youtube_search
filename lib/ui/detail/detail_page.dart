@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kiwi/kiwi.dart' as kiwi;
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:youtube_search/data/model/detail/video_snippet.dart';
 import 'package:youtube_search/ui/detail/detail.dart';
 import 'package:youtube_search/ui/search/widget/centered_message.dart';
@@ -20,22 +19,11 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   final _detailBloc = kiwi.Container().resolve<DetailBloc>();
-  YoutubePlayerController _controller;
 
   @override
   void initState() {
     super.initState();
     _detailBloc.onShowDetail(id: widget.videoId);
-    _controller = YoutubePlayerController(
-        initialVideoId: widget.videoId,
-        flags: YoutubePlayerFlags(
-          mute: false,
-          autoPlay: true,
-          disableDragSeek: false,
-          loop: false,
-          isLive: false,
-          forceHideAnnotation: true,
-        ));
   }
 
   @override
@@ -139,26 +127,6 @@ class _DetailPageState extends State<DetailPage> {
       sliver: SliverList(
         delegate: SliverChildListDelegate(
           <Widget>[
-            SizedBox(height: 5),
-            YoutubePlayer(
-              controller: _controller,
-              showVideoProgressIndicator: true,
-            ),
-            // YoutubePlayer(
-            //   context: context,
-            //   source: widget.videoId,
-            //   quality: YoutubeQuality.MEDIUM,
-            //   autoPlay: true,
-            //   aspectRatio: 16 / 9,
-            //   onError: (errorMessage) {
-            //     return Center(
-            //       child: Text(
-            //         errorMessage,
-            //         style: TextStyle(color: Colors.white),
-            //       ),
-            //     );
-            //   },
-            // ),
             SizedBox(height: 5),
             Text(
               snippet.title,
