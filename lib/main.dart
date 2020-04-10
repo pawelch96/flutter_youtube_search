@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         primaryColor: Colors.red.shade600,
         accentColor: Colors.redAccent.shade400,
+        accentColorBrightness: Brightness.light,
       ),
       home: SearchPage(),
     );
